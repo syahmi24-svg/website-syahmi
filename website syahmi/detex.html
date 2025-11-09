@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhamad Zulhilmi Syahmi</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="Laman peribadi Muhamad Zulhilmi Syahmi — pelajar SMKPP9(1) dan bakal doktor bedah yang berminat dalam sains, teknologi dan inovasi.">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8fbff;
+      color: #003366;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      cursor: none;
+      transition: background 0.3s, color 0.3s;
+    }
+    .cursor {width: 15px; height: 15px; border-radius: 50%; background: rgba(0,123,255,0.8); position: fixed; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.1s ease; z-index: 9999;}
+
+    header {
+      background: linear-gradient(135deg, #0052D4, #65C7F7, #9CECFB);
+      color: white;
+      text-align: center;
+      padding: 70px 20px 130px;
+      position: relative;
+      overflow: hidden;
+      animation: bgAnim 15s linear infinite alternate;
+    }
+    @keyframes bgAnim {0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;}}
+    .profil {width:130px;height:130px;border-radius:50%;border:4px solid white;box-shadow:0 4px 10px rgba(0,0,0,0.2);position:absolute;bottom:-25px;left:50%;transform:translate(-50%,20px);object-fit:cover;opacity:0;animation:fadeUp 1s ease forwards;animation-delay:0.3s;transition:0.4s ease;}
+    .profil:hover {box-shadow:0 0 25px rgba(255,255,255,0.8); transform:translate(-50%,20px) scale(1.05);}
+    @keyframes fadeUp {from{opacity:0;transform:translate(-50%,20px);}to{opacity:1;transform:translate(-50%,0);}}
+    .nama-bergerak h1 {display:inline-block;animation:gerakKanan 15s linear infinite;white-space:nowrap;font-size:2.8em;margin:0;font-weight:700;text-shadow:2px 2px 5px rgba(0,0,0,0.2);}
+    .kata-inspirasi {font-style:italic;font-weight:500;margin-top:10px;font-size:1.1em;color:#e0f7ff;opacity:0;animation:fadeIn 2s ease forwards;animation-delay:1s;}
+    @keyframes gerakKanan{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+    header p {font-size:1.2em;margin-top:10px;letter-spacing:0.5px;font-weight:600;}
+
+    nav {position: sticky; top:0; background-color:#66b2ff; display:flex; justify-content:center; gap:20px; padding:15px 0; font-weight:bold; z-index:100;}
+    nav a {text-decoration:none; color:white; position:relative; transition:0.3s;}
+    nav a::after {content:""; position:absolute; width:0%; height:2px; background-color:#003366; left:0; bottom:-5px; transition:width 0.3s;}
+    nav a:hover::after, nav a.active::after {width:100%;}
+    nav a.active {color:#003366;}
+    #darkModeToggle {margin-left:20px; padding:5px 10px; border-radius:5px; cursor:pointer;}
+
+    section {max-width:900px; margin:60px auto; background-color:white; border-radius:18px; box-shadow:0 4px 15px rgba(0,0,0,0.1); padding:40px; opacity:0; transform:translateY(50px); transition:opacity 1s ease, transform 1s ease;}
+    section.show {opacity:1; transform:translateY(0);}
+    section h2 {color:#0056b3; border-bottom:2px solid #cce0ff; padding-bottom:8px; margin-bottom:20px; font-family:'Montserrat',sans-serif;}
+    section p, ul {font-size:1.1em; line-height:1.8em;}
+    ul li {margin-bottom:10px; transition:0.3s;}
+    ul li:hover {color:#007BFF; transform:translateX(5px);}
+    
+    .hobi-item {display:flex; align-items:center; gap:10px; margin-bottom:15px; cursor:pointer; transition:transform 0.3s ease;}
+    .hobi-item:hover {transform:scale(1.05); color:#007BFF;}
+    .skill {margin:15px 0;}
+    .skill-name {font-weight:600; margin-bottom:5px;}
+    .skill-bar {width:100%; background:#e0e0e0; border-radius:25px; overflow:hidden;}
+    .skill-bar-fill {height:15px; width:0%; background:#007BFF; border-radius:25px; transition:width 1.5s ease;}
+    .hubungi {display:flex; justify-content:center; gap:20px; margin-top:30px; flex-wrap:wrap;}
+    .hubungi a {background-color:#007BFF;color:white;text-decoration:none;padding:12px 25px;border-radius:25px;font-weight:600;transition:0.3s;}
+    .hubungi a:hover {background: linear-gradient(135deg,#004aad,#007BFF); transform:scale(1.05);}
+    #scrollTop {position:fixed; bottom:20px; right:20px; background:#007BFF; color:white; border:none; padding:10px 15px; border-radius:50%; cursor:pointer; display:none; box-shadow:0 3px 10px rgba(0,0,0,0.2); transition:0.3s;}
+    #scrollTop:hover {background:#0056b3; transform:scale(1.1);}
+    footer {background-color:#e6f0ff; padding:20px; color:#003366; font-size:0.9em; text-align:center;}
+    body.dark {background:#001f3f; color:#e0e0e0;}
+    body.dark section {background:#003366; color:#e0e0e0;}
+    body.dark nav {background:#0056b3;}
+    body.dark nav a.active {color:#f0f0f0;}
+    body.dark footer {background:#00264d; color:#cce0ff;}
+    .galeri-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:15px;}
+    .galeri-grid img {width:100%; border-radius:10px; transition:0.3s;}
+    .galeri-grid img:hover {transform:scale(1.05); box-shadow:0 4px 15px rgba(0,0,0,0.2);}
+
+    @media (max-width:600px){section{margin:25px; padding:25px;} .nama-bergerak h1{font-size:2em;}}
+  </style>
+</head>
+<body>
+  <div class="cursor"></div>
+
+  <header>
+    <div class="nama-bergerak">
+      <h1>MUHAMAD ZULHILMI SYAHMI</h1>
+      <div class="kata-inspirasi">“Berfikir di luar kotak, bertindak dengan hati.”</div>
+    </div>
+    <p>Pelajar SMKPP9(1) & Bakal Doktor Bedah</p>
+    <img src="gambar-syahmi.jpg" alt="Profil Syahmi" class="profil">
+  </header>
+
+  <nav>
+    <a href="#tentang">Tentang</a>
+    <a href="#hobi">Hobi</a>
+    <a href="#kemahiran">Kemahiran</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#pendidikan">Pendidikan</a>
+    <a href="#projek">Projek</a>
+    <a href="#pengiktirafan">Pengiktirafan</a>
+    <a href="#blog">Blog/Vlog</a>
+    <a href="#matlamat">Matlamat</a>
+    <a href="#hubungi">Hubungi</a>
+    <button id="darkModeToggle">🌙</button>
+  </nav>
+
+  <section id="tentang">
+    <h2>Tentang Diri Saya</h2>
+    <p>Hai, saya <strong>Muhamad Zulhilmi Syahmi</strong>, pelajar SMKPP9(1) yang penuh semangat untuk belajar dan mencipta. Gemar fotografi, vlog, serta inovasi dalam bidang teknologi & robotik.</p>
+  </section>
+
+  <section id="hobi">
+    <h2>Hobi & Minat</h2>
+    <div class="hobi-item">🏇 Bermain polo — melatih strategi & semangat berpasukan.</div>
+    <div class="hobi-item">📸 Fotografi & vlog — menangkap momen & berkongsi kisah.</div>
+    <div class="hobi-item">🍲 Mencari makanan & travel — mengenal budaya & pemandangan baru.</div>
+    <div class="hobi-item">🤖 Robotik & teknologi — melatih daya inovasi & minat sains.</div>
+  </section>
+
+  <section id="kemahiran">
+    <h2>Kemahiran</h2>
+    <div class="skill"><div class="skill-name">Robotik & Pengaturcaraan</div><div class="skill-bar"><div class="skill-bar-fill" data-fill="90%"></div></div></div>
+    <div class="skill"><div class="skill-name">Fotografi & Vlog</div><div class="skill-bar"><div class="skill-bar-fill" data-fill="85%"></div></div></div>
+    <div class="skill"><div class="skill-name">Reka Bentuk & Kreativiti</div><div class="skill-bar"><div class="skill-bar-fill" data-fill="80%"></div></div></div>
+  </section>
+
+  <section id="galeri">
+    <h2>Galeri Saya</h2>
+    <div class="galeri-grid">
+      <img src="projek1.jpg" alt="Projek Robotik">
+      <img src="gambar2.jpg" alt="Vlog Travel">
+      <img src="gambar3.jpg" alt="Fotografi Alam">
+      <img src="gambar4.jpg" alt="Projek Robotik">
+    </div>
+  </section>
+
+  <section id="pendidikan">
+    <h2>Pendidikan</h2>
+    <ul>
+      <li>SMKPP9(1) — Pelajar Sains</li>
+      <li>Pelbagai kursus robotik & teknologi</li>
+      <li>Sertai program kepimpinan & STEM</li>
+    </ul>
+  </section>
+
+  <section id="projek">
+    <h2>Projek & Inovasi</h2>
+    <ul>
+      <li>Robotik Line Tracer — pertandingan peringkat negeri</li>
+      <li>Mini Vlog dokumentari travel & makanan</li>
+      <li>Projek digital 3D bilik robotik & rekabentuk inovasi</li>
+    </ul>
+  </section>
+
+  <section id="pengiktirafan">
+    <h2>Pengiktirafan</h2>
+    <ul>
+      <li>Medal Robotik — Projek Line Tracer</li>
+      <li>Sijil STEM & kreativiti sekolah</li>
+      <li>Penglibatan komuniti & pertandingan inovasi</li>
+    </ul>
+  </section>
+
+  <section id="blog">
+    <h2>Blog / Vlog</h2>
+    <ul>
+      <li><a href="#">Vlog Travel & Makanan</a></li>
+      <li><a href="#">Projek & Tips Robotik</a></li>
+      <li><a href="#">Pengalaman Sekolah & STEM</a></li>
+    </ul>
+  </section>
+
+  <section id="matlamat">
+    <h2>Matlamat Hidup</h2>
+    <p>Bercita-cita menjadi <strong>doktor bedah am</strong> yang mahir dan berempati, menggabungkan ilmu perubatan dengan teknologi.</p>
+  </section>
+
+  <section id="hubungi" class="hubungi">
+    <a href="https://www.instagram.com/s._zulhilmi?igsh=MTBocng4M2FiOTRtOQ==" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@awan_biru356?_r=1&_t=ZS-91FIgcHpBJM" target="_blank">TikTok</a>
+  </section>
+
+  <footer>
+    © Muhamad Zulhilmi Syahmi | Semua hak cipta terpelihara.
+  </footer>
+
+  <button id="scrollTop">⬆️</button>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const menuLinks = document.querySelectorAll('nav a');
+    const scrollTopBtn = document.getElementById('scrollTop');
+    const skillFills = document.querySelectorAll('.skill-bar-fill');
+    const cursor = document.querySelector('.cursor');
+    const darkModeToggle = document.getElementById('darkModeToggle');
+
+    const showSection = () => {
+      const triggerBottom = window.innerHeight / 5 * 4;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if(sectionTop < triggerBottom) section.classList.add('show');
+      });
+    };
+
+    const highlightMenu = () => {
+      let scrollPos = window.scrollY + window.innerHeight / 2;
+      sections.forEach((section, idx) => {
+        if(scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+          menuLinks.forEach(link => link.classList.remove('active'));
+          menuLinks[idx]?.classList.add('active');
+        }
+      });
+    };
+
+    const animateSkills = () => {
+      skillFills.forEach(fill => {
+        const rect = fill.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 50){
+          fill.style.width = fill.dataset.fill;
+        }
+      });
+    };
+
+    window.addEventListener('scroll', () => {
+      showSection();
+      highlightMenu();
+      scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+      animateSkills();
+    });
+
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+    window.addEventListener('load', () => {showSection(); highlightMenu(); animateSkills();});
+
+    darkModeToggle.addEventListener('click', () => {document.body.classList.toggle('dark');});
+
+    window.addEventListener('mousemove', e => {cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;});
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const audio = new Audio('click.mp3');
+        audio.volume = 0.3;
+        audio.play();
+      });
+    });
+  </script>
+</body>
+</html>
